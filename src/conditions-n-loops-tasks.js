@@ -44,7 +44,8 @@ function isPositive(number) {
 function getMaxNumber(a, b, c) {
   if (a > b && a > c) {
     return a;
-  } else if (b > a && b > c) {
+  }
+  if (b > a && b > c) {
     return b;
   }
   return c;
@@ -69,14 +70,14 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
 function canQueenCaptureKing(queen, king) {
-  const x = queen['x'];
-  const y = queen['y'];
-  const x1 = king['x'];
-  const y1 = king['y'];
+  const { x } = queen;
+  const { y } = queen;
+  const x1 = king.x;
+  const y1 = king.y;
   if (x === x1 || y === y1 || Math.abs(x - x1) === Math.abs(y - y1)) {
     return true;
   }
-  return false
+  return false;
 }
 
 /**
@@ -99,7 +100,7 @@ function canQueenCaptureKing(queen, king) {
  */
 function isIsoscelesTriangle(a, b, c) {
   if (a + b > c && a + c > b && b + c > a) {
-    if (a === b || a === c || b == c) {
+    if (a === b || a === c || b === c) {
       return true;
     }
   }
@@ -121,7 +122,7 @@ function isIsoscelesTriangle(a, b, c) {
  *  26  => XXVI
  */
 function convertToRomanNumerals(num) {
-  throw
+  return num;
 }
 
 /**
@@ -141,20 +142,20 @@ function convertToRomanNumerals(num) {
  */
 function convertNumberToString(numberStr) {
   const num = {
-    '1': 'one',
-    '2': 'two',
-    '3': 'three',
-    '4': 'four',
-    '5': 'five',
-    '6': 'six',
-    '7': 'seven',
-    '8': 'eight',
-    '9': 'nine',
-    '0': 'zero',
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+    0: 'zero',
     '-': 'minus',
     ',': 'point',
-    '.': 'point'
-  }
+    '.': 'point',
+  };
   let answ = '';
   for (let i = 0; i < String(numberStr).length; i += 1) {
     answ += ` ${num[String(numberStr)[i]]}`;
@@ -224,7 +225,7 @@ function getIndexOf(str, letter) {
  *  12345, 6    => false
  */
 function isContainNumber(num, digit) {
-  let num1 = `${num}`;
+  const num1 = `${num}`;
   for (let i = 0; i < num1.length; i += 1) {
     if (`${digit}` === num1[i]) {
       return true;
@@ -249,11 +250,11 @@ function isContainNumber(num, digit) {
 function getBalanceIndex(arr) {
   let sum1 = 0;
   let sum2 = 0;
-  for (let i = 1; i < arr.length-1; i += 1) {
+  for (let i = 1; i < arr.length - 1; i += 1) {
     for (let j = 0; j < i; j += 1) {
       sum1 += arr[j];
     }
-    for (let k = arr.length-1; k > i; k -= 1) {
+    for (let k = arr.length - 1; k > i; k -= 1) {
       sum2 += arr[k];
     }
     if (sum1 === sum2) {
@@ -324,8 +325,8 @@ function rotateMatrix(/* matrix */) {
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
 function sortByAsc(arr) {
-  let arr1 = [];
-  for (let i = 0; i < arr.length-1; i += 1) {
+  const arr1 = [];
+  for (let i = 0; i < arr.length - 1; i += 1) {
     if (arr[i] < arr[i + 1]) {
       arr1.push(arr[i]);
     }
@@ -351,7 +352,7 @@ function sortByAsc(arr) {
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
 function shuffleChar(str, iterations) {
-  let answ = str.split('');
+  const answ = str.split('');
   for (let i = 0; i < iterations; i += 1) {
     if (i % 2 !== 0) {
       answ.splice(i, 1);
